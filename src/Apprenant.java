@@ -62,6 +62,11 @@ public class Apprenant {
                 + ", prenom=" + prenom + ", region_id=" + region_id + "]";
     }
     
-    
-    
+    public String afficher() {
+        return "Nom, prénom: " + nom  + ", " + prenom ;
+    }
+
+    public String afficherRegion() {
+        return "Nom, prénom : " + nom + ", " + prenom + " de " + region_id.getNomRegion();
+    }
 }

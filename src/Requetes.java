@@ -1,3 +1,4 @@
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,6 +24,26 @@ public class Requetes {
             apprenants.add(apprenant);
         }
 
+        return apprenants;
+    }
+
+    // ############### GET ALL APPRENANT WITH ID REGION ###############
+    public static ArrayList<Apprenant> getApprenantsWidthRegion(int id) throws SQLException {
+        ArrayList<Apprenant> apprenants = new ArrayList<>();
+        String req =  "select * from apprenant join region on region.idregion = apprenant.region_idregion where region.idregion =" + id;
+        ResultSet res = AccesBD.executerQuery(req);
+
+        while (res.next()) {
+            Apprenant apprenant = new Apprenant();
+            apprenant.setId(res.getInt("idapprenant"));
+            apprenant.setNom(res.getString("nom"));
+            apprenant.setPrenom(res.getString("prenom"));
+            apprenant.setDateNaissance(res.getDate("dateNaissance"));
+            apprenant.setEmail(res.getString("email"));
+            apprenant.setRegion_id(getRegionById(res.getInt("region_idregion")));
+            apprenants.add(apprenant);
+        }
+        
         return apprenants;
     }
 

@@ -3,7 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,visualstudiocode,windows,linux,macos,maven,eclipse
 
 ### Perso ###
-./src/config.properties
+src/config.properties
 
 ### Eclipse ###
 .metadata

@@ -7,17 +7,24 @@ public class Apprenant {
     private Date dateNaissance;
     private String email;
     private Region region_id;
-    public Apprenant(int id, String nom, String prenom, Date dateNaissance, String email, Region region_id) {
+    private Activites activites;
+
+    public Apprenant(int id, String nom, String prenom, Date dateNaissance, String email, Region region_id, Activites activites) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.email = email;
         this.region_id = region_id;
+        this.activites = activites;
     }
     
     public Apprenant() {
         // TODO
+    }
+
+    public Apprenant(int id, String nom, String prenom, Date dateNaissance, String email, Region region_id) {
+        this(id, nom, prenom, dateNaissance, email, region_id, null);
     }
 
     public int getId() {
@@ -56,12 +63,23 @@ public class Apprenant {
     public void setRegion_id(Region region_id) {
         this.region_id = region_id;
     }
+    
+    public Activites getActivites() {
+        return activites;
+    }
+
+    public void setActivites(Activites activites) {
+        this.activites = activites;
+    }
+
+    
+    
     @Override
     public String toString() {
-        return "Apprenant [dateNaissance=" + dateNaissance + ", email=" + email + ", id=" + id + ", nom=" + nom
-                + ", prenom=" + prenom + ", region_id=" + region_id + "]";
+        return "Apprenant [activtes=" + activites + ", dateNaissance=" + dateNaissance + ", email=" + email + ", id="
+                + id + ", nom=" + nom + ", prenom=" + prenom + ", region_id=" + region_id + "]";
     }
-    
+
     public String afficher() {
         return "Nom, prénom: " + nom  + ", " + prenom ;
     }

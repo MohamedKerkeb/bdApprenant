@@ -2,6 +2,7 @@ public class Region {
     private int id;
     private String nomRegion;
     public Region(int id, String nomRegion) {
+        super();
         this.id = id;
         this.nomRegion = nomRegion;
     }
